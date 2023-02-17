@@ -28,6 +28,11 @@ const mongooseSchema = new mongoose.Schema({
   mother_dob: { type: Date, required: true },
   primary_skills: [{ type: String, required: true }],
   secondery_skills: [{ type: String, required: true }],
-  designation: { type: String, required: true },
+  designation: { type: mongoose.Schema.Types.ObjectId, ref: "category" },
+  user_in_your_under: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
   //   hr_reporting_name : {type : }
 });
+
+const userModel = new mongoose.Model("user", mongooseSchema);
+
+export { userModel };
