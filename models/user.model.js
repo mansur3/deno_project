@@ -31,6 +31,9 @@ const mongooseSchema = new mongoose.Schema({
   designation: { type: mongoose.Schema.Types.ObjectId, ref: "category" },
   user_in_your_under: [{ type: mongoose.Schema.Types.ObjectId, ref: "user" }],
   //   hr_reporting_name : {type : }
+  hr_reporting_name: { type: String, required: true },
+  functional_reporting_name: { type: String, required: true },
+  employee_id: { type: String, required: true },
 });
 
 const userModel = new mongoose.Model("user", mongooseSchema);
